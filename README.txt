@@ -13,6 +13,7 @@ In order to change the name, change the function argument of intro() to your nam
 
 /quit: quits the program 
 
+/search: Searches a certain contact and returns it. 
 
 
 The file must be running in order to save all the data. If you quit the program fully, the
