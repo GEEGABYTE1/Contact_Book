@@ -93,6 +93,7 @@ def intro(name):
             print("Type /remove_contact to remove a contact")
             print("Type /view to view your contact book")
             print("Type /quit to quit the program")
+            print("Type /search to search a certain contact")
         
         elif question == "/add_contact":
             user_input = input("Name: ")
@@ -122,11 +123,24 @@ def intro(name):
                             continue
                 except AttributeError:
                     break
+        elif question == "/search":
+            prompt1 = input("Please enter a contact you would like to search for: ")
+            for i in ll.tracker([]):
+                try:
+                    for j in i.values():
+                        if prompt1 == j:
+                            print(i)
+                            print("\n")
+                            break
+                        else:
+                            continue
+                except AttributeError:
+                    break
 
         elif question == "/quit":
             break
         
-        elif not question == '' or not question == "/view" or not quetsion == "/add_contact" or not question == "/remove_contact":
+        elif not question == '' or not question == "/view" or not quetsion == "/add_contact" or not question == "/remove_contact" or not question == "/search":
             print("That command is not valid!")
             print('\n')
             
