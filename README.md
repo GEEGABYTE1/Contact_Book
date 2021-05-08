@@ -1,4 +1,4 @@
-# Contact book re-created in Python. 
+# Contact book in Python. 
 
 
 # Commands 
