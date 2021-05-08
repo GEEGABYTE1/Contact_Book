@@ -125,17 +125,22 @@ def intro(name):
                     break
         elif question == "/search":
             prompt1 = input("Please enter a contact you would like to search for: ")
-            for i in ll.tracker([]):
-                try:
-                    for j in i.values():
-                        if prompt1 == j:
-                            print(i)
-                            print("\n")
-                            break
-                        else:
-                            continue
-                except AttributeError:
-                    break
+            try:
+                linear_search(ll.tracker([]), prompt1)
+            except ValueError:
+                print("That contact does not seem to be in your contacts! ")
+
+            #for i in ll.tracker([]):
+                #try:
+                    #for j in i.values():
+                        #if prompt1 == j:
+                            #print(i)
+                            #print("\n")
+                            #break
+                        #else:
+                            #continue
+                #except AttributeError:
+                    #break
 
         elif question == "/quit":
             break
@@ -143,7 +148,23 @@ def intro(name):
         elif not question == '' or not question == "/view" or not quetsion == "/add_contact" or not question == "/remove_contact" or not question == "/search":
             print("That command is not valid!")
             print('\n')
-            
+
+
+def linear_search(lst, target_value):
+    matches = []
+    for i in range(len(lst)):
+        try:
+            real_value = lst[i]['Name']
+            if real_value == target_value:
+                matches.append(i)
+        except TypeError:
+            break 
+        
+    if len(matches) > 0:
+        for i in matches:
+            print(lst[i])
+    else:
+        raise ValueError("{} does not seem to be in your contact book! ".format(target_value))
             
             
 
